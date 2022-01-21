@@ -1,0 +1,133 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW" xml:lang="zh-Hant-TW">
+<head>
+<title>smartify</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+
+	body{
+		font-family: 'Courier New';
+		font-size: '20px';
+	}
+	
+	a {
+	  color: white;
+	  text-decoration: none;
+	}
+	
+	a:hover {
+	  color: gold;
+	}
+	
+	p.kj {
+		font-family: 'Noto Sans TC', sans-serif;
+		text-align: center;
+		font-size: '100px';
+	}
+	
+	table{
+	  border: 0px solid black;
+	  border-spacing: 10px;
+	}
+	
+	tr, td {
+	  border: 3px solid #444444;
+	}
+	
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+</head>
+<body leftmargin="6%" rightmargin="6%" style="color:#ffffff; background-color:#111111">
+
+
+<!-- Header -->
+<div>
+<h1>Smartify</h1>
+<h4>Pin a file to IPFS and create an ERC721 token on smartBCH.</h4>
+<br>
+</div>
+
+<hr>
+
+
+
+<!-- Step 1 -->
+<div style="margin-left: 30px">
+    <h3>[Step 1] pin file to IPFS via Pinata API</h3>
+    <label for="api-key">pinata_api_key</label>&nbsp;
+    <input type="text" id="api-key" size="26" value="6057ec87e6e379605d4f" />
+    <br>
+    <label for="secret-api-key">pinata_secret_api_key</label>&nbsp;
+    <input type="text" id="secret-api-key" size="70" value="6fe56761bc893daa5dfcef3989d496dbfba7f8fe26ee8a51cb223e8782bcab13" />
+    <br>
+    <label for="file-to-pin">Select a file:</label>
+    <input type="file" id="file-to-pin" name="file-to-pin"> 
+    <br><br>
+    <button onclick="pinFileToIPFS()">Pin file to IPFS</button>
+</div>
+
+<br><br>
+
+
+<!-- Step 2 -->
+<div style="margin-left: 30px">
+    <h3>[Step 2] create NFT meta and pin to IPFS</h3>
+    <label for="nft-name">NFT name</label>&nbsp;
+    <input type="text" id="nft-name" size="12" value="smartify" />
+    <br>
+    <label for="nft-description">NFT description</label>&nbsp;
+    <input type="text" id="nft-description" size="30" value="test NFT to be smartified" />
+    <br>
+    <label for="nft-image-ipfs">NFT image URI</label>&nbsp;
+    <input type="text" id="nft-image-ipfs" size="60" value="" />
+    <br><br>
+    <button onclick="pinJSONToIPFS()">Pin meta to IPFS</button>
+</div>
+
+
+<br><br>
+
+
+<!-- Step 3 -->
+<div style="margin-left: 30px">
+    <h3>[Step 3] connect wallet</h3>
+    <button onclick="onConnect()">Connect Wallet</button>
+    <br>
+    <label for="connectedAddress">Connected Wallet Address</label>&nbsp;&nbsp;
+    <input type="text" name="connectedAddress" size="45" value="" readonly /><br>
+</div>
+<br><br>
+
+
+<!-- Step 4 -->
+<div style="margin-left: 30px">
+    <h3>[Step 4] mint NFT on smartBCH</h3>
+    <label for="nft-token-ID">NFT token ID</label>&nbsp;
+    <input type="text" id="nft-token-ID" size="12" value="" />
+    <br>
+    <label for="nft-meta-ipfs">NFT meta URI</label>&nbsp;
+    <input type="text" id="nft-meta-ipfs" size="60" value="test NFT to be smartified" />
+    <br>
+    <label for="nft-recipient-address">NFT recipient address</label>&nbsp;
+    <input type="text" id="nft-recipient-address" size="50" value="" />
+    <br><br>
+    <button onclick="mintNFT()">Mint NFT</button>
+</div>
+<br><br>
+
+<!-- Footer -->
+<hr><br>
+
+<div id="waifusdiv" align="center"></div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+<script src="script/smartify.js"></script>
+
+In case of issues, please contact <a href="https://noise.cash/u/liwi">https://noise.cash/u/liwi</a>.
+</body>
+</html>

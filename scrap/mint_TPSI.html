@@ -1,0 +1,38 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW" xml:lang="zh-Hant-TW">
+
+<head>
+<title>TPSI / Rinkeby</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+<script src="mint_TPSI/script.js?1013"></script>
+<!-- <link rel="preload" href="mint_TPSI/script.js" as="script"> -->
+</head>
+
+<body style="color:#ffffff; background-color:#111111">
+<h1>Mint TPSI on Rinkeby</h1>
+
+<button onclick="onConnect()">Connect Wallet</button>
+<br>
+<label for="connectedAddress">Connected Wallet Address</label>&nbsp;&nbsp;
+<input type="text" name="connectedAddress" size="45" value="" readonly /><br>
+
+<br>
+
+<br><hr><br>
+
+<label for="contractAddress">Contract Address</label>&nbsp;&nbsp;
+<input type="text" name="contractAddress" size="45" value="0xf7774f3538ABB28c802933303d7ceA7367D95478" readonly /><br>
+<label for="mintTo">NFT Recipient Address</label>&nbsp;&nbsp;
+<input type="text" name="mintTo" size="45" placeholder="0x813ad48aa283fa788711423422d92ca433a33fe9" /><br>
+<label for="tokenId">Token ID</label>&nbsp;&nbsp;
+<input type="text" name="tokenId" value="3" placeholder="1" /><br>
+<label for="tokenUri">Token URI</label>&nbsp;&nbsp;
+<input type="text" name="tokenUri" value="ipfs://QmS536oAhr3JnYf9hyxaKf8UqkPMd6Cteek1urhF53ZCEL" placeholder="1" size="55" /><br>
+<br>
+<button class="mintTpsiButton" onclick="onMint()">Mint TPSI</button>
+</body>
+
+</html>
