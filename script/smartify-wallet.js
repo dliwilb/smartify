@@ -22,25 +22,32 @@ async function showNFTs() {
     let nftContractAddress = document.getElementById('nft-contract-address').value;
     let nftContract = new ethers.Contract(nftContractAddress, ERC721Abi, provider);
 
-    connected0xAccount = '0x2a01a145a28b465d1Ff2De331dAdD829E570fBB6';
-    let eventFilter = nftContract.filters.Transfer(connected0xAccount, null, null);
-    // let eventFilter = nftContract.filters.Transfer(null, connected0xAccount, null);
+    // connected0xAccount = '0x2a01a145a28b465d1Ff2De331dAdD829E570fBB6';
+    // let eventFilter = nftContract.filters.Transfer(connected0xAccount, null, null);
+    let eventFilter = nftContract.filters.Transfer(null, connected0xAccount, null);
     let events = await nftContract.queryFilter(eventFilter);
     console.log(events);
 
+    let numNFT = 0;
     document.getElementById('list-of-nfts').innerHTML = '';
     for (let i = 0; i < events.length; i++) {
         const transferFrom = events[i].args[0];
         const transferTo = events[i].args[1];
         const transferTokenId = events[i].args[2];
 
-        const nftURI = await nftContract.tokenURI(transferTokenId);
-        const nftJSON = await fetchJSON(nftURI);
+        const owner0xAccount = await nftContract.ownerOf(transferTokenId);
+        console.log(owner0xAccount + ":" + connected0xAccount);
+        if (String(owner0xAccount).toLowerCase() === String(connected0xAccount).toLowerCase()) {
+            numNFT++;
+            const nftURI = await nftContract.tokenURI(transferTokenId);
+            const nftJSON = await fetchJSON(nftURI);
 
-        document.getElementById('list-of-nfts').innerHTML = 
-        document.getElementById('list-of-nfts').innerHTML + 
-        `<div>From: ${transferFrom}<br>To: ${transferTo}<br>Token ID: ${transferTokenId}<br><img src="${nftJSON.image}" width=200 height=200></div><br>`;
+            document.getElementById('list-of-nfts').innerHTML = 
+            document.getElementById('list-of-nfts').innerHTML + 
+            `<div>From: ${transferFrom}<br>To: ${transferTo}<br>Token ID: ${transferTokenId}<br><img src="${nftJSON.image}" width=200 height=200></div><br>`;
+        }
     }
+    console.log(numNFT)
 
 
 }
