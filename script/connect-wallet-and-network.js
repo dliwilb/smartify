@@ -3,34 +3,23 @@
 
 let isWalletConnected = false;
 let isNetworkConnected = false;
-
-
-async function onConnect() {
-
-    await connectWallet();
-    if (isWalletConnected == true){
-        await switchNetwork();
-        // if (isNetworkConnected == true){
-        //     await getMintFee();
-        // }
-    }
-
-}
+let connected0xAccount = '';
 
 async function connectWallet() {
 
     if (window.ethereum) {
         try {
-            const connectedAccount = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            connected0xAccount = await window.ethereum.request({ method: 'eth_requestAccounts' });
             isWalletConnected = true;
-            document.getElementById('connected-address').value = connectedAccount;
-            console.log('log: wallet connected');
+            console.log(`log: wallet connected to ${connected0xAccount}`);
         }
         catch (error) {
             if (error.code === 4001) {
+                isWalletConnected = false;
                 console.log('log: connection rejected by user');
             }
 
+            isWalletConnected = false;
             console.log('log: cannot connect to wallet');
         }
     }

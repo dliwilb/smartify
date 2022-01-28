@@ -65,12 +65,20 @@
 
 <hr>
 
-<button type="button" onclick="showNFTs()">Submit</button>
+<label for="nft-contract-address">NFT collection: </label>
+	<select name="nft-contract-address" id="nft-contract-address">
+	  <option value="0xE765026Cad648785b080E78700cBF6fa1C050d7C">CashCats (0xE765...0d7C)</option>
+	  <option value="0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2">Reapers (0x4897....8cf2)</option>
+	  <option value="0x36F7e5eaFA2E96872B40cFBeD8e41767337ca8cF">Thrones: Queens (0x36F7...a8cF)</option>
+	  <option value="0xD27CFd5b254E8D958c0c8e7f99E17A1e33652C1A">cryptor.at (0xD27C...2C1A)</option>
+	  <option value="0x88fA0495d5E9C1B178EAc1D76DF9D729e39fD8E8">Poolside Puffers (0x88fA...D8E8)</option>
+	</select>
+<button type="button" onclick="showNFTs()">Connect Wallet and Check</button>
 <br>
 
 <hr>
 
-
+<div id="list-of-nfts"></div>
 
 <!-- Footer -->
 <hr><br>
@@ -79,6 +87,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 <script src="script/connect-wallet-and-network.js"></script>
+<script src="script/ERC721-abi.js"></script>
 <script src="script/smartify-wallet.js"></script>
 
 有問題不一定要找 <a href="https://noise.cash/u/liwi">https://noise.cash/u/liwi</a>，因為他也不一定會。
