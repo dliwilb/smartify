@@ -1,6 +1,10 @@
 // connectWalletAndNetwork.js
 // connect wallet and switch network
 
+let isWalletConnected = false;
+let isNetworkConnected = false;
+
+
 async function onConnect() {
 
     await connectWallet();
