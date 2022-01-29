@@ -84,7 +84,7 @@ async function showNFTs() {
                 const nftJSON = await fetchJSON(nftURI);
 
                 document.getElementById('list-of-nfts').innerHTML +=
-                    `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<img src="${nftJSON.image}" width=200 height=200></span>`;
+                    `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a></span>`;
 
             }
         }
