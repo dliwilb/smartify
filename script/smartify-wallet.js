@@ -27,6 +27,7 @@ async function showNFTs() {
         // const nftContractAddress = '0xE765026Cad648785b080E78700cBF6fa1C050d7C';  // CashCats
         // const nftContractAddress = '0x88fA0495d5E9C1B178EAc1D76DF9D729e39fD8E8';  // Poolside Puffers
         // const nftContractAddress = '0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2';  // Reapers
+        // 0x87aA4eF35454fEF0B3E796d20Ab609d3c941F46b   // Smart Waifu
 
         let nftContractAddress = document.getElementById('nft-contract-address').value;
 
@@ -81,10 +82,26 @@ async function showNFTs() {
 
                 ownedIndex++;
                 const nftURI = await nftContract.tokenURI(arrayTokenId[i]);
+                // console.log(nftURI);
                 const nftJSON = await fetchJSON(nftURI);
+                // console.log(nftJSON);
+                // console.log(nftJSON.name);
+                // console.log(nftJSON.attributes[0]);
+                // console.log(nftJSON.attributes[0]["value"]);
 
-                document.getElementById('list-of-nfts').innerHTML +=
-                    `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a></span>`;
+                if ( nftContractAddress == '0x87aA4eF35454fEF0B3E796d20Ab609d3c941F46b' ){
+                    let [kjlastname, kjfirstname, lastname, firstname] = nftJSON.name.split(/ /);
+                    firstname = firstname.slice(0,-1);
+                    lastname = lastname.toUpperCase().slice(1);
+                    const paddingSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                    const padding = paddingSpaces.slice(0, Math.floor((24 - firstname.length - lastname.length) / 2) * 6);
+                    console.log(padding);
+                    document.getElementById('list-of-nfts').innerHTML +=
+                        `<span class="nftdisplay"><span class="text-token-id">[${ownedIndex}] Token ID: ${arrayTokenId[i]}</span><span class="waifu-name-kj">${kjlastname}&nbsp;&nbsp;${kjfirstname}</span><a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a><span class="waifu-name">${padding}${firstname} ${lastname}${padding} ${nftJSON.attributes[0]["value"]}&nbsp;&nbsp;${nftJSON.attributes[1]["value"]}&nbsp;&nbsp;${nftJSON.attributes[2]["value"]}</span></span>`;
+                } else {
+                    document.getElementById('list-of-nfts').innerHTML +=
+                        `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a></span>`;
+                }
 
             }
         }
@@ -120,7 +137,7 @@ async function fetchJSON(api_uri) {
 	let response = await fetch(api_uri);
 	
 	if (!response.ok) {
-	throw new Error(`HTTP error! status: ${response.status}`);
+	    throw new Error(`HTTP error! status: ${response.status}`);
 	}
 	
 	let myJSON = await response.json();
