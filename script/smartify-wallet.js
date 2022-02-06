@@ -106,7 +106,7 @@ async function showNFTs() {
             }
         }
 
-        document.getElementById('collection-and-owner').innerHTML = `<h3>${nameOfNft} owned by ${connected0xAccount}...&nbsp;&nbsp; ${ownedIndex} in total</h3>`;
+        document.getElementById('collection-and-owner').innerHTML = `<h3>${nameOfNft} owned by ${ethers.utils.getAddress(connected0xAccount.toString())}...&nbsp;&nbsp; ${ownedIndex} in total</h3>`;
         isRunning = false;
     }
 }
