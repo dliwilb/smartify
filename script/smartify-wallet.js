@@ -60,13 +60,14 @@ async function showNFTs() {
             ownedCandidates[String(tokenId)] = {};
             ownedCandidates[String(tokenId)]["blockNumber"] = eventsReceived[i].blockNumber;
             ownedCandidates[String(tokenId)]["owned"] = true;
+            ownedCandidates[String(tokenId)]["ownedIndex"] = i;
         }
         for (let i = 0; i < eventsSent.length; i++){
-            const tokenId = eventsReceived[i].args[2];
-            if  ( eventsSent[i].blockNumber >= ownedCandidates[String(tokenId)]["blockNumber"]){
+            const tokenId = eventsSent[i].args[2];
 
+            if ( eventsSent[i].blockNumber >= ownedCandidates[String(tokenId)]["blockNumber"]){
+                ownedCandidates[String(tokenId)]["owned"] = false;
             }
-            ownedCandidates[String(tokenId)]["owned"] = false;
         }
         // console.log(ownedCandidates);
         // console.log(Object.keys(ownedCandidates));
