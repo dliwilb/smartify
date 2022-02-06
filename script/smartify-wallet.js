@@ -39,7 +39,7 @@ async function showNFTs() {
         else if (nftContractAddress === '0x0'){
             nftContractAddress = document.getElementById('custom-nft-contract-address').value;
         }
-        console.log(nftContractAddress);
+        console.log(`log: contract address set to ${nftContractAddress}`);
 
         const nftContract = new ethers.Contract(nftContractAddress, ERC721Abi, provider);
 
