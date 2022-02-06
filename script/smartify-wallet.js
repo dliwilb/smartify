@@ -45,7 +45,7 @@ async function showNFTs() {
 
         const nameOfNft = await nftContract.name();
 
-        // connected0xAccount = '0x2a01a145a28b465d1Ff2De331dAdD829E570fBB6';
+        // connected0xAccount = '';
         const eventFilterReceived = nftContract.filters.Transfer(null, connected0xAccount, null);
         const eventsReceived = await nftContract.queryFilter(eventFilterReceived);
         // console.log(eventsReceived);
