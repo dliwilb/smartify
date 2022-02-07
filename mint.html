@@ -6,64 +6,12 @@
 <title>Smartify</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style>
-
-	body{
-		/* font-family: 'Courier New'; */
-        font-family: 'Noto Sans TC', sans-serif;
-		font-size: '20px';
-        margin-left: 3%;
-        margin-right: 3%;
-        color:#ffffff; 
-        background-color:#111111;
-	}
-	
-	a {
-	  color: white;
-	  /* text-decoration: none; */
-      text-decoration:underline;
-      text-decoration-style: dotted;
-      text-decoration-color: gold;
-	}
-	
-	a:hover {
-	  color: gold;
-      text-decoration: none;
-	}
-	
-    button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 6px 13px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        font-family: 'Noto Sans TC', sans-serif;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-
-    input, textarea {
-        /* appearance: none; */
-        /* background-color: transparent; */
-        border: none;
-        /* padding: 0 1em 0 0; */
-        padding: 4px 10px;
-        /* margin: 0; */
-        margin: 4px 4px;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        cursor: pointer;
-    }
-
     div.div-step + div.div-step {
         margin-top: 3em;
         margin-bottom: 3em;
     }
-
 </style>
+<link rel="stylesheet" href="css/common-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
@@ -71,13 +19,22 @@
 </head>
 <body>
     
-<!-- <div class="div-step"> -->
-<!-- <h1>Smartify</h1> -->
-<!-- </div> -->
+<!-- Header -->
+<div>
+    <div class="dropdown" style="display:inline; vertical-align:super;">
+        <button onclick="myFunction()" class="dropbtn" style="font-weight: bold; font-size: larger;">&nbsp;&#9776;&nbsp;</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="assets.html">Assets</a>
+            <a href="transfer.html">Transfer</a>
+            <a href="mint.html">Mint</a>
+        </div>
+    </div>
+    &nbsp;
+    <h1 style="display: inline-block">Mint (work in progress)</span></h1>
+</div>
 
 <!-- Introduction -->
-<h1>Mint</h1>
-<hr>
 <div id="div-introduction" class="div-step">
     <h3>Non-Fungible Token</h3>
     <input type="text" id="nft-name" size="12" placeholder="標題 " /><br>
@@ -111,6 +68,7 @@
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 <script src="script/connect-wallet-and-network.js"></script>
 <script src="script/ERC721-abi.js"></script>
+<script src="script/common-layout.js"></script>
 <script src="script/smartify-mint.js"></script>
 
 有問題不一定要找 <a href="https://noise.cash/u/liwi">https://noise.cash/u/liwi</a>，因為他也不一定會。
