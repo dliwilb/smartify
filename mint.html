@@ -29,43 +29,6 @@
 	  color: gold;
       text-decoration: none;
 	}
-
-    span.nftdisplay {
-        display: inline-block;
-        width: 290px;
-    }
-
-    span.text-token-id {
-        display: inline-block;
-        width: 140px;
-    }
-
-    @font-face {
-        font-family: 'Gensai'; 
-        src: url('GenSenRounded-B_0.ttf');
-    }
-
-    span.waifu-name-kj {
-        display: inline-block;
-        width: 200px;
-        text-align: center;
-        font-size: 20pt;
-        margin-top: 0.5em;
-        margin-bottom: 0.1em;
-        font-family: 'Gensai', sans-serif;
-        font-weight: bold;
-    }
-
-    span.waifu-name {
-        display: inline-block;
-        width: 200px;
-        text-align: center;
-        font-size: 12pt;
-    }
-
-    span.nftdisplay + span.nftdisplay {
-        margin-bottom: 3em;
-    }
 	
     button {
         background-color: #4CAF50;
@@ -81,7 +44,7 @@
         cursor: pointer;
     }
 
-    select {
+    input, textarea {
         /* appearance: none; */
         /* background-color: transparent; */
         border: none;
@@ -95,62 +58,10 @@
         cursor: pointer;
     }
 
-    input {
-        /* appearance: none; */
-        /* background-color: transparent; */
-        border: none;
-        /* padding: 0 1em 0 0; */
-        padding: 4px 10px;
-        /* margin: 0; */
-        margin: 4px 4px;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        cursor: pointer;
+    div.div-step + div.div-step {
+        margin-top: 3em;
+        margin-bottom: 3em;
     }
-
-    #custom-nft-contract-address {
-        display: none;
-    }
-
-    .dropbtn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 6px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #4CAF50;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown a:hover {background-color: #ddd;}
-
-    .show {display: block;}
 
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,20 +71,47 @@
 </head>
 <body>
     
+<!-- <div class="div-step"> -->
+<!-- <h1>Smartify</h1> -->
+<!-- </div> -->
 
-<h1>Smartify - Mint NFT</h1>
+<!-- Introduction -->
+<h1>Mint</h1>
+<hr>
+<div id="div-introduction" class="div-step">
+    <h3>Non-Fungible Token</h3>
+    <input type="text" id="nft-name" size="12" placeholder="標題 " /><br>
+    <textarea cols="75" rows="6" style="resize: vertical;" placeholder="說明"></textarea><br>
+    <input type="number" id="nft-editions" min="1" style="width: 90px" placeholder="發行數量" /><br>
+    &thinsp;<button id="button-for-file" style="border: 2px dashed #cccccc; background-color: #333333;">選擇檔案</button>
+    <input type="file" id="file-to-pin" name="file-to-pin" onchange="updateFile()" style="display: none" /><br>
+</div>
+
+<div id="div-introduction" class="div-step">
+    <h3>Pinata credentials&nbsp;&nbsp;<span title="What is this and why is it needed?" style="font-size: small; color: orange; text-decoration: none; vertical-align: super; border: 1px solid orange; cursor: pointer;">&nbsp;?&nbsp;</span></h3>
+    <div style="display: none">test</div>
+    <input type="text" id="api-key" size="26" placeholder="Pinata API Key" value="" /><br>
+    <input type="text" id="secret-api-key" size="70" placeholder="Pinata Secret API Key" value="" /><br>
+</div>
+
+<div id="div-introduction" class="div-step">
+    <button onclick="pinFileToIPFS()">Smartify</button>
+</div>
+
+
+
 
 
 
 <!-- Footer -->
 <!-- <hr> -->
-<br><br>
+<br>
 
 <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 <script src="script/connect-wallet-and-network.js"></script>
 <script src="script/ERC721-abi.js"></script>
-<script src="script/smartify-wallet.js"></script>
+<script src="script/smartify-mint.js"></script>
 
 有問題不一定要找 <a href="https://noise.cash/u/liwi">https://noise.cash/u/liwi</a>，因為他也不一定會。
 <br><br>
