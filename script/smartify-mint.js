@@ -16,25 +16,14 @@ function updateFile(){
 }
 
 
-
-async function onConnect() {
-	// ethereum.request({ method: 'eth_requestAccounts' });
-	
-	window.ethereum.request({
-		method: 'eth_requestAccounts',
-	}).then((response)=>{
-		provider = new ethers.providers.Web3Provider(window.ethereum);
-		document.querySelector('input[name="connectedAddress"]').value = response[0];
-		
-		window.ethereum.request({
-			method: 'wallet_switchEthereumChain',
-			params: [{ chainId: '0x4' }],
-		}).then((response)=>{
-		});
-	});
-	
-	console.log( 'Is MetaMask? ' + ethereum.isMetaMask);
+function showPinataInfo(){
+    if (document.getElementById('pinata-info').style.display == 'block'){
+        document.getElementById('pinata-info').style.display = 'none';
+    } else {
+        document.getElementById('pinata-info').style.display = 'block';
+    }
 }
+
 
 
 async function pinFileToIPFS() {

@@ -1,10 +1,10 @@
 // smartify-wallet.js
 // onConnect();
 
-
 function showInput(inputId, element){
     document.getElementById(inputId).style.display = element.value == '0x0' ? 'block' : 'none';
 }
+
 
 let isRunning = false;
 

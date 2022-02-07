@@ -43,8 +43,13 @@
 </div>
 
 <!-- Introduction -->
-<div id="div-introduction" class="div-step">
-    <h3>Non-Fungible Token</h3>
+<div class="div-step">
+    <h3>Non-Fungible Token&nbsp;&nbsp;<span title="ERC721 on smartBCH" style="font-size: small; color: orange; text-decoration: none; vertical-align: super; border: 1px solid orange; cursor: pointer;" onclick="showERC721Info()">&nbsp;?&nbsp;</span></h3>
+
+    <div id="erc721-info" style="width: 680px; display: none; border: 1px dashed orange; margin: 0px 10px 50px; font-size: small; padding: 10px; color: orange">
+        There are two common NFT implemention standards on an Ethereum Virtual Machine (EVM), <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/">ERC-721&thinsp;<img src="icons8-external-link-16_goldish.png"></a> and <a href="https://eips.ethereum.org/EIPS/eip-1155">ERC-1155&thinsp;<img src="icons8-external-link-16_goldish.png"></a>. 
+    </div>
+
     <input type="text" id="nft-name" size="12" placeholder="標題 " /><br>
     <div class="div-textarea"><textarea cols="" rows="8" style="resize: vertical;" placeholder="說明"></textarea></div>
     <input type="number" id="nft-editions" min="1" style="width: 90px" placeholder="發行數量" /><br>
@@ -52,15 +57,20 @@
     <input type="file" id="file-to-pin" name="file-to-pin" onchange="updateFile()" style="display: none" /><br>
 </div>
 
-<div id="div-introduction" class="div-step">
-    <h3>Pinata credentials&nbsp;&nbsp;<span title="What is this and why is it needed?" style="font-size: small; color: orange; text-decoration: none; vertical-align: super; border: 1px solid orange; cursor: pointer;">&nbsp;?&nbsp;</span></h3>
-    <div style="display: none">test</div>
+<div class="div-step">
+    <h3>Pinata credentials&nbsp;&nbsp;<span title="What is this and why is it needed?" style="font-size: small; color: orange; text-decoration: none; vertical-align: super; border: 1px solid orange; cursor: pointer;" onclick="showPinataInfo()">&nbsp;?&nbsp;</span></h3>
+    
+    <div id="pinata-info" style="width: 680px; display: none; border: 1px dashed orange; margin: 0px 10px 50px; font-size: small; padding: 10px; color: orange">
+        The file selected will be uploaded to the <a href="https://ipfs.io/">InterPlanatery File System (IPFS)</a> via <a href="https://medium.com/pinata/how-to-pin-to-ipfs-effortlessly-ba3437b33885" target="_blank">Pinata's API&thinsp;<img src="icons8-external-link-16_goldish.png"></a>, as well as a <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank">JSON file&thinsp;<img src="icons8-external-link-16_goldish.png"></a> that contains information about the NFT using the <a href="https://eips.ethereum.org/EIPS/eip-721" target="_blank">ERC721 Metadata JSON Schema&thinsp;<img src="icons8-external-link-16_goldish.png"></a>. <br>
+        By using your own API keys you are in full control of the <a href="https://docs.ipfs.io/concepts/persistence/">pinning status&thinsp;<img src="icons8-external-link-16_goldish.png"></a> of your non-fungible tokenized work. You are responsible for the file you upload and tokenize.
+    </div>
+
     <input type="text" id="api-key" placeholder="Pinata API Key" value="" style="width: 330px" /><br>
     <input type="text" id="secret-api-key" placeholder="Pinata Secret API Key" value="" style="width: 680px;" /><br>
 </div>
 
-<div id="div-introduction" class="div-step">
-    <button onclick="pinFileToIPFS()">Smartify</button>
+<div class="div-step">
+    <button onclick="">Smartify</button>
 </div>
 
 
