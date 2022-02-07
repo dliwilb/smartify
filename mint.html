@@ -10,6 +10,16 @@
         margin-top: 3em;
         margin-bottom: 3em;
     }
+
+    .div-textarea{
+        width: 680px;
+        height: 200px;
+    }
+
+    .div-textarea > textarea {
+        width: inherit;
+        height: 90%;
+    }
 </style>
 <link rel="stylesheet" href="css/common-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +48,7 @@
 <div id="div-introduction" class="div-step">
     <h3>Non-Fungible Token</h3>
     <input type="text" id="nft-name" size="12" placeholder="標題 " /><br>
-    <textarea cols="75" rows="6" style="resize: vertical;" placeholder="說明"></textarea><br>
+    <div class="div-textarea"><textarea cols="" rows="" style="resize: vertical;" placeholder="說明"></textarea></div>
     <input type="number" id="nft-editions" min="1" style="width: 90px" placeholder="發行數量" /><br>
     &thinsp;<button id="button-for-file" style="border: 2px dashed #cccccc; background-color: #333333;">選擇檔案</button>
     <input type="file" id="file-to-pin" name="file-to-pin" onchange="updateFile()" style="display: none" /><br>

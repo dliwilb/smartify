@@ -97,7 +97,7 @@ input, textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #custom-nft-contract-address {
