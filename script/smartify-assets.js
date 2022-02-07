@@ -99,10 +99,10 @@ async function showNFTs() {
                     const padding = paddingSpaces.slice(0, Math.floor((24 - firstname.length - lastname.length) / 2) * 6);
                     // console.log(padding);
                     document.getElementById('list-of-nfts').innerHTML +=
-                        `<span class="nftdisplay"><span class="text-token-id">[${ownedIndex}] Token ID: ${arrayTokenId[i]}</span><span class="waifu-name-kj">${kjlastname}&nbsp;&nbsp;${kjfirstname}</span><a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a><span class="waifu-name">${padding}${firstname} ${lastname}${padding} ${nftJSON.attributes[0]["value"]}&nbsp;&nbsp;${nftJSON.attributes[1]["value"]}&nbsp;&nbsp;${nftJSON.attributes[2]["value"]}</span><a href="transfer.html?nft_contract_address=${nftContractAddress}&token_id=${arrayTokenId[i]}" title="Transfer" target="_blank"><img src="transfer-icon-neg.png"></a></span>`;
+                        `<span class="nftdisplay"><span class="text-token-id">[${ownedIndex}] Token ID: ${arrayTokenId[i]}</span><span class="waifu-name-kj">${kjlastname}&nbsp;&nbsp;${kjfirstname}</span><a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a><span class="waifu-name">${padding}${firstname} ${lastname}${padding} ${nftJSON.attributes[0]["value"]}&nbsp;&nbsp;${nftJSON.attributes[1]["value"]}&nbsp;&nbsp;${nftJSON.attributes[2]["value"]}</span><a href="transfer.html?nft_contract_address=${nftContractAddress}&token_id=${arrayTokenId[i]}" title="Transfer"><img src="transfer-icon-neg.png"></a></span>`;
                 } else {
                     document.getElementById('list-of-nfts').innerHTML +=
-                        `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a> <a href="transfer.html?nft_contract_address=${nftContractAddress}&token_id=${arrayTokenId[i]}" title="Transfer" target="_blank"><img src="transfer-icon-neg.png"></a></span>`;
+                        `<span class="nftdisplay">[${ownedIndex}] Token ID: ${arrayTokenId[i]}<a href="${nftJSON.image}" target="_blank"><img src="${nftJSON.image}" width=200 height=200></a> <a href="transfer.html?nft_contract_address=${nftContractAddress}&token_id=${arrayTokenId[i]}" title="Transfer"><img src="transfer-icon-neg.png"></a></span>`;
                 }
 
             }
