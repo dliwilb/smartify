@@ -16,11 +16,11 @@ function updateFile(){
 }
 
 
-function showPinataInfo(){
-    if (document.getElementById('pinata-info').style.display == 'block'){
-        document.getElementById('pinata-info').style.display = 'none';
+function showDiv(elementId){
+    if (document.getElementById(elementId).style.display == 'block'){
+        document.getElementById(elementId).style.display = 'none';
     } else {
-        document.getElementById('pinata-info').style.display = 'block';
+        document.getElementById(elementId).style.display = 'block';
     }
 }
 
