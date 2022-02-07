@@ -86,7 +86,7 @@ select {
     cursor: pointer;
 }
 
-input {
+input, textarea {
     /* appearance: none; */
     /* background-color: transparent; */
     border: none;
